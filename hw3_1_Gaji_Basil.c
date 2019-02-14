@@ -7,7 +7,7 @@
  int main(void){
 
 	float b_mac = 6.99, g_a_chick = 7.49, mcnug = 6.99, chic_crisp = 7.79, b_s_art = 7.89, m_swiss = 8.69, size1, item_price, price, total;
-	int sel_item, amount;
+	int sel_item, amount, status;
 	char size, repeat;
 
 	
@@ -63,12 +63,25 @@
 
 
 		printf("Input the amount: ");
-		scanf("%d", &amount);
+		status = scanf("%d", &amount);
+		while (status != 1){
+			while(getchar() != '\n'){
+				printf("Please input a valid order amount: ");}
+			status = scanf("%d", &amount);
+		
+		}
 
 		printf("Input lower case s/m/l to select size: ");
-		scanf("%c", &size);
-	//size = getchar();	
 		
+		getchar();
+		
+		scanf("%c", &size);
+		while (status != 1){
+		       while(getchar() != '\n'){
+			printf("Please input a valid size(s,m,l): ");}
+		status = scanf("%d", &amount);
+		          	
+		}
 		switch(size){
 			case 's':
 				printf("You select small.\n");
@@ -88,6 +101,8 @@
 		total += price;
 
 		printf("Press c to continue or any other key to checkout.");
+		
+		getchar();
 		
 		scanf("%c", &repeat);
 		if (repeat == 'c'){
